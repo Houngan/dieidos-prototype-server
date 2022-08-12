@@ -1,0 +1,61 @@
+scalar Date
+
+type Philosophy {
+  id: ID!
+  locution: String
+  coordinates: [Float]
+}
+
+type Player {
+  id: ID!
+  pseudo: String
+}
+
+type Idea {
+  category: String
+  modalities: [Modality]
+}
+
+type Modality {
+  title: String
+  value: Float
+}
+
+type Perspective {
+  type: String
+}
+
+union Input = Idea | Perspective
+
+union Output = Idea | Perspective
+
+type Game {
+  inputs: [Input]
+  outputs: [Output]
+}
+
+type Query {
+  Philosophies(limit: Int, sortField: String, sortOrder: String): [Philosophy]
+}
+
+type Mutation {
+  addPhilosophy(
+    locution: String
+    longitude: Float
+    latitude: Float
+    password: String
+  ): Philosophy
+
+  addPlayer(
+    pseudo: String
+    philosophy_id: ID!
+    password: String
+    ideas: [Idea]
+  ): Player
+
+  removePlayer(id: ID!, philosophy_id: ID!): Philosophy
+}
+
+type Subscription {
+  newPhilosophy(id: ID!): Game
+}
