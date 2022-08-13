@@ -59,6 +59,16 @@ const resolvers = {
 
       return newPlayer;
     },
+
+    removePlayer: (_, args) => {
+      players = players.filter((player) => player.id !== args.id);
+
+      const philosophy = philosophies.find(
+        (philosophy) => philosophy.id == args.philosophy_id
+      );
+
+      return philosophy;
+    },
   },
 
   Subscription: {
@@ -115,8 +125,7 @@ var typeDefs = gql`
   type Mutation {
     addPhilosophy(
       locution: String!
-      longitude: Float
-      latitude: Float
+      coordinates: [Float]
       password: String
     ): Philosophy
 
