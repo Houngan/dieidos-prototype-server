@@ -23,6 +23,7 @@ type Modality {
 
 type Perspective {
   type: String
+  player: Player
 }
 
 union Input = Idea | Perspective
