@@ -27,28 +27,28 @@ const gameExample = [
   },
   {
     player: players[0],
-    input: { type: "perspective", category: "Effacée" },
-    output: { type: "idea", category: "Confiance" },
-  },
-  {
-    player: players[0],
     input: { type: "idea", category: "Dialogue" },
     output: { type: "perspective", category: "Idéaliste" },
   },
   {
     player: players[0],
-    input: { type: "perspective", category: "Idéaliste" },
-    output: { type: "idea", category: "Fidélité" },
+    input: { type: "perspective", category: "Effacée" },
+    output: { type: "idea", category: "Confiance" },
   },
   {
     player: players[0],
-    input: { type: "perspective", category: "Effacée" },
+    input: { type: "perspective", category: "Idéaliste" },
     output: { type: "idea", category: "Fidélité" },
   },
   {
     player: players[0],
     input: { type: "perspective", category: "Idéaliste" },
     output: { type: "idea", category: "Confiance" },
+  },
+  {
+    player: players[0],
+    input: { type: "perspective", category: "Effacée" },
+    output: { type: "idea", category: "Fidélité" },
   },
 ];
 
