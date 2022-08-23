@@ -17,7 +17,7 @@ let philosophies = [
   },
 ];
 
-let players = [{ id: "1", pseudo: "Alex" }];
+let players = [{ id: "1", pseudo: "Demo" }];
 
 const gameExample = [
   {
