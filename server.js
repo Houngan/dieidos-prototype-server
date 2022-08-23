@@ -6,7 +6,7 @@ const { createServer } = require("http");
 
 const { ApolloServer, gql } = require("apollo-server-express");
 
-const { PubSub } = require("apollo-server");
+const { PubSub, UserInputError } = require("apollo-server");
 const pubsub = new PubSub();
 
 let philosophies = [
@@ -71,18 +71,27 @@ const resolvers = {
     },
 
     addPlayer: (_, args) => {
-      const newPlayer = {
-        id: v4(),
-        pseudo: args.name,
-      };
+      const checkIfPseudo = players.find((item) => item.pseudo === args.pseudo);
 
-      console.log("args", JSON.stringify(args.ideas));
+      if (!checkIfPseudo) {
+        const newPlayer = {
+          id: v4(),
+          pseudo: args.name,
+        };
 
-      players.push(newPlayer);
+        // console.log("args", JSON.stringify(args.ideas));
 
-      pubsub.publish("philosophyGameModified", { philosophyGame: gameExample });
+        players.push(newPlayer);
 
-      return newPlayer;
+        pubsub.publish("philosophyGameModified", {
+          philosophyGame: gameExample,
+        });
+
+        return newPlayer;
+      } else
+        throw new UserInputError("Pseudo already used !", {
+          argumentName: "pseudo",
+        });
     },
 
     removePlayer: (_, args) => {
