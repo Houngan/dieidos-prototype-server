@@ -22,8 +22,33 @@ let players = [{ id: "1", pseudo: "Alex" }];
 const gameExample = [
   {
     player: players[0],
-    input: { type: "perspective", category: "Besogneux" },
-    output: { type: "idea", category: "Enthousiasme" },
+    input: { type: "idea", category: "Engagement" },
+    output: { type: "perspective", category: "Effacée" },
+  },
+  {
+    player: players[0],
+    input: { type: "perspective", category: "Effacée" },
+    output: { type: "idea", category: "Confiance" },
+  },
+  {
+    player: players[0],
+    input: { type: "idea", category: "Dialogue" },
+    output: { type: "perspective", category: "Idéaliste" },
+  },
+  {
+    player: players[0],
+    input: { type: "perspective", category: "Idéaliste" },
+    output: { type: "idea", category: "Fidélité" },
+  },
+  {
+    player: players[0],
+    input: { type: "perspective", category: "Effacée" },
+    output: { type: "idea", category: "Fidélité" },
+  },
+  {
+    player: players[0],
+    input: { type: "perspective", category: "Idéaliste" },
+    output: { type: "idea", category: "Confiance" },
   },
 ];
 
