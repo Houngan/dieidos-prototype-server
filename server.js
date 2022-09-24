@@ -23,12 +23,12 @@ const gameExample = [
   {
     player: players[0],
     input: { type: "idea", category: "Engagement" },
-    output: { type: "perspective", category: "Effacée" },
+    output: { type: "perspective", category: "Effacée", ocytocine: 20 },
   },
   {
     player: players[0],
     input: { type: "idea", category: "Dialogue" },
-    output: { type: "perspective", category: "Idéaliste" },
+    output: { type: "perspective", category: "Idéaliste", ocytocine: 80 },
   },
   {
     player: players[0],
@@ -144,6 +144,7 @@ var typeDefs = gql`
   type Output {
     type: String
     category: String
+    ocytocine: Float
   }
 
   type Game {
